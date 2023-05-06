@@ -8,8 +8,10 @@ angular.module('appRoutes',['ngRoute'])
         templateUrl: 'app/views/pages/home.html'
     })
 
-    .when('/about',{
-        templateUrl: 'app/views/pages/about.html'
+    .when('/task_manager',{
+        templateUrl: 'app/views/pages/task_manager.html',
+        controller: 'taskDisplayCtrl',
+        controllerAs: 'display'
     })
 
     .when('/create_task',{

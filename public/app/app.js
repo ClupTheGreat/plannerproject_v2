@@ -1,1 +1,1 @@
-angular.module('plannerApp',[`appRoutes`,`taskControllers`]);
+angular.module('plannerApp',[`appRoutes`,`taskControllers`, `ngAnimate`,`taskDisplayControllers`]);

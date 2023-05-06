@@ -18,6 +18,17 @@ module.exports = function(router){
         }
         
     });
+
+    router.post(`/task_display`,function(req,res){
+        let data;
+        database.all_task_details(function(rows) {
+            data = rows;
+            res.json(data);
+            console.log(data);
+          });
+        
+    });
+
     return router;
 
 }

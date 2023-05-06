@@ -1,0 +1,24 @@
+    <div class="task-manager-header">
+        <h1><b>Task Manager</b></h1>
+        <hr>
+        <br>
+        <br>
+    </div>
+    <div class="task-display-flexbox">
+            <div><!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6" id="task-box" ng-repeat="task in data">
+                            <div class="serviceBox">
+                                <div class="service-icon">
+                                </div>
+                                <h3 class="title">{{task.task_name}}</h3>
+                                <p class="description">{{task.task_description}}</p>
+                                <div><hr></div>
+                                <h3 class="title">{{task.time_remaining}}</h3>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+    </div>

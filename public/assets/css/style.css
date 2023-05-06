@@ -1,0 +1,81 @@
+main{
+    padding-top: 30px;
+}
+header .navbar {
+    border-radius:0;
+}
+
+.page-header {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.task-manager-container {
+    padding-left: 20px;
+}
+
+.btn-primary{
+    margin-left: 35px;
+}
+
+#task-box{
+    padding-bottom: 20px;
+}
+
+:root{ --main-color: #8298B7; }
+.demo{ background-color: #eee; }
+.serviceBox{
+    color: var(--main-color);
+    background: linear-gradient(#fff,#eee);
+    font-family: 'Open Sans', sans-serif;
+    padding: 70px 30px 60px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.serviceBox:before{
+    content: '';
+    background-color: var(--main-color);
+    width: 100%;
+    height: 40px;
+    box-shadow: 0 -2px 20px -10px rgba(0,0,0,0.5) inset;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.serviceBox .service-icon{
+    color: #777;
+    font-size: 35px;
+    margin: 0 0 10px;
+}
+.serviceBox .title{
+    color: var(--main-color);
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 0 0 15px;
+    margin: 0 0 18px;
+    border-bottom: 2px solid #999;
+    text-shadow: 2px 2px rgba(0,0,0,0.08);
+}
+.serviceBox .description{
+    color: #888;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    text-align: justify;
+    margin: 0;
+}
+.serviceBox.green{  --main-color: #87C46C; }
+.serviceBox.cyan{  --main-color: #6CC6CF; }
+.serviceBox.blue{  --main-color: #4B89BD; }
+@media only screen and (max-width: 990px){
+    .serviceBox{ margin: 0 0 20px; }
+}
