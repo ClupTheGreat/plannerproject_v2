@@ -1,0 +1,32 @@
+<div class = "page-header"><h1>Create Task</h1></div>
+
+<form ng-submit="creator.taskCreate(taskData)">
+    <label>Enter the name of your Task:</label>
+    <input type="text" name="task_name" placeholder="Name of the task" ng-model="creator.taskData.task_name"> </input><br>
+    <label>Enter the details about your task: </label>
+    <input type="text" name="task_description" placeholder="Enter details" ng-model="creator.taskData.task_description"></input><br>
+    <label>Completion date and time: </label>
+    <input type="datetime-local" name="task_end_time" ng-model="creator.taskData.task_end_time"></input><br>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<br>
+
+<div class="jumbotron text-center" ng-show="creator.loading">
+    <span class="glyphicon glyphicon-repeat spinner"></span>
+    <p>Loading...</p>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="creator.successMsg">
+    <div class="alert alert-success">{{creator.successMsg}}</div>
+    
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="creator.errorMsg">
+    <div class="alert alert-danger">{{creator.errorMsg}}</div>
+    
+</div>
