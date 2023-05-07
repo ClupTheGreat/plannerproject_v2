@@ -10,5 +10,3 @@ angular.module('taskServices',[])
 
     return taskFactory;
 });
-
-// $http.post('/api/tasks',this.taskData).then(function(data){ 

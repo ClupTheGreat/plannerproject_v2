@@ -22,8 +22,8 @@ angular.module('appRoutes',['ngRoute'])
 
     .when('/edit_task',{
         templateUrl: 'app/views/pages/edit_task.html',
-        controller: 'taskCtrl',
-        controllerAs: 'creator'
+        controller: 'taskEditCtrl',
+        controllerAs: 'editor'
     })
 
     .otherwise({redirectTo: '/'});

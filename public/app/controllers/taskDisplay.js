@@ -5,7 +5,6 @@ angular.module('taskDisplayControllers', ['dataServices'])
   $scope.loadData = function() {
     $http.post('/api/task_display').then(function(response) {
       $scope.data = response.data;
-      console.log($scope.data);
       $scope.calculateTimeRemaining(); // call the new function to calculate time remaining
     }, function(error) {
       console.log(error);
@@ -13,7 +12,6 @@ angular.module('taskDisplayControllers', ['dataServices'])
   };
 
   $scope.$on('$viewContentLoaded', function() {
-    console.log('Page Loaded');
     $scope.loadData();
     $interval($scope.calculateTimeRemaining, 1000); // update the timer every second
   });
@@ -36,8 +34,12 @@ angular.module('taskDisplayControllers', ['dataServices'])
     });
 
     $scope.sendData = function(task_data){
-        console.log('Set data');
         DataService.setData(task_data)
+    }
+
+    $scope.deleteTask = function(task_id){
+        $http.post('/api/delete_task', {task_id : task_id});
+        $scope.loadData();
     }
   };
 });

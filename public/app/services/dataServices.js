@@ -17,35 +17,3 @@ angular.module('dataServices',[])
         getData: getData
       };
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// angular.module('dataServices').service('DataService',function(){
-//     var data = {};
-
-//     function setData(newData){
-//         data = newData;
-//     }
-
-//     function getData(){
-//         return data;
-//     }
-
-//     return {
-//         setData: setData,
-//         getData: getData
-//     };
-// });

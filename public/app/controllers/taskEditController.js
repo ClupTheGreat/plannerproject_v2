@@ -1,13 +1,13 @@
-angular.module(`taskControllers`,['taskServices'])
+angular.module('taskEditControllers',['dataServices'])
 
-.controller('taskCtrl', function($http, $location, $timeout, Task){
-
+.controller('taskEditCtrl',function($http, $location, $timeout, DataService){
     let app = this;
-
-    this.taskCreate = function(taskData){
-        app.loading = true;
-        app.errorMsg = false;
-        Task.create(app.taskData).then(function(data){
+    app.taskData = {
+        task_id: DataService.getData()
+    };
+    this.editTask = function(taskData){
+        console.log(this.taskData);
+        $http.post(`/api/task_edit`,this.taskData).then(function(data){
             if (data.data.success) {
                 app.loading = false;
                 //Success message
@@ -23,5 +23,5 @@ angular.module(`taskControllers`,['taskServices'])
                 app.errorMsg = data.data.message;
             }
         });
-    };
+    }  
 });
