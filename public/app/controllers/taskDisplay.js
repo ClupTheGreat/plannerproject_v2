@@ -1,6 +1,6 @@
-angular.module('taskDisplayControllers', [])
+angular.module('taskDisplayControllers', ['dataServices'])
 
-.controller('taskDisplayCtrl', function($scope, $http, $interval) {
+.controller('taskDisplayCtrl', function($scope, $http, $interval, DataService) {
 
   $scope.loadData = function() {
     $http.post('/api/task_display').then(function(response) {
@@ -34,6 +34,11 @@ angular.module('taskDisplayControllers', [])
         task.time_remaining = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
       }
     });
+
+    $scope.sendData = function(task_data){
+        console.log('Set data');
+        DataService.setData(task_data)
+    }
   };
 });
 

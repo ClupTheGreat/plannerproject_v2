@@ -16,7 +16,12 @@
                                 <p class="description">{{task.task_description}}</p>
                                 <div><hr></div>
                                 <h3 class="title">{{task.time_remaining}}</h3>
-                                
+                                <br>
+                                <div class="button-container">
+                                    <a ng-href="/edit_task" ng-click="sendData(task.task_id)" class="btn btn-primary">Edit</a>
+                                  <button class="btn btn-danger">Delete</button>
+                                </div>
+
                             </div>
                         </div>
                     </div>

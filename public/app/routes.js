@@ -20,6 +20,12 @@ angular.module('appRoutes',['ngRoute'])
         controllerAs: 'creator'
     })
 
+    .when('/edit_task',{
+        templateUrl: 'app/views/pages/edit_task.html',
+        controller: 'taskCtrl',
+        controllerAs: 'creator'
+    })
+
     .otherwise({redirectTo: '/'});
 
     $locationProvider.html5Mode({

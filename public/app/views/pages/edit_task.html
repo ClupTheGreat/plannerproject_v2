@@ -1,8 +1,8 @@
-<div class="task-manager-header"><h1><b>Task Manager: Create Task</b></h1>
-<hr>
+<div class="task-manager-header">
+    <h1><b>Task Manager: Edit Task</b></h1>
+    <hr>
     <br>
     <br>
-
 <form ng-submit="creator.taskCreate(taskData)">
     <label>Enter the name of your Task:</label>
     <input type="text" name="task_name" placeholder="Name of the task" ng-model="creator.taskData.task_name"> </input><br>
@@ -32,5 +32,4 @@
 <div class="row show-hide-message" ng-show="creator.errorMsg">
     <div class="alert alert-danger">{{creator.errorMsg}}</div>
     
-</div>
 </div>
