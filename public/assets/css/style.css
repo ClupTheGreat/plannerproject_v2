@@ -88,3 +88,9 @@ header .navbar {
 @media only screen and (max-width: 990px){
     .serviceBox{ margin: 0 0 20px; }
 }
+
+.ngview-container{
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 30px;
+}

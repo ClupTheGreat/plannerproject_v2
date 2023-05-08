@@ -13,12 +13,14 @@
 	<script src="/app/controllers/taskCtrl.js"></script>
 	<script src="/app/controllers/taskDisplay.js"></script>
 	<script src="/app/controllers/taskEditController.js"></script>
+	<script src="/app/controllers/userCtrl.js"></script>
 	<!--Angular Config/Routes-->
 	<script src="app/app.js"></script>
 	<script src="app/routes.js"></script>
 	<!--Angular Services-->
 	<script src="app/services/taskServices.js"></script>
 	<script src="app/services/dataServices.js"></script>
+	<script src="app/services/userServices.js"></script>
 	<body ng-app="plannerApp">
 	<base href = "/">
 </head>
@@ -44,25 +46,25 @@
 	  <li class="nav-item">
 		<a class="nav-link" href="#">Call</a>
 	  </li>-->
-	   <!-- <li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-		  Dropdown link
+	   <li class="nav-item dropdown dmenu">
+		<a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+		  Account
 		</a>
 		<div class="dropdown-menu sm-menu">
-		  <a class="dropdown-item" href="#">Link 1</a>
-		  <a class="dropdown-item" href="#">Link 2</a>
+		  <a class="dropdown-item" href="/register">Register</a>
+		  <!-- <a class="dropdown-item" href="#">Link 2</a>
 		  <a class="dropdown-item" href="#">Link 3</a>
 		  <a class="dropdown-item" href="#">Link 4</a>
 		  <a class="dropdown-item" href="#">Link 5</a>
-		  <a class="dropdown-item" href="#">Link 6</a>
+		  <a class="dropdown-item" href="#">Link 6</a> -->
 		</div>
-	  </li> -->
+	  </li>
 	  </ul>
-	  <!--<div class="social-part">
+	  <!-- <div class="social-part">
 		<i class="fa fa-facebook" aria-hidden="true"></i>
 		<i class="fa fa-twitter" aria-hidden="true"></i>
 		<i class="fa fa-instagram" aria-hidden="true"></i>
-	  </div>-->
+	  </div> -->
 	</div>
   </nav>
   <!---
@@ -78,7 +80,7 @@
 		</div>
 	</main> -->
 
-	<div ng-view>
+	<div ng-view class="ngview-container">
 
 	</div>
 

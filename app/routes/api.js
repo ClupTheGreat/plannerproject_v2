@@ -49,6 +49,28 @@ module.exports = function(router){
         }
     });
 
+    router.post(`/users`, function(req, res) {
+        let email = req.body.email;
+        let username = req.body.username;
+        let password = req.body.password;
+      
+        if (email == null || email == null || username == null || username == '' || password == '' || password == '') {
+            // Return an error message indicating that email, username, and password are required
+            res.json({ success: false, message: 'Ensure email, username, and password are provided' });
+        } else {
+                // Call the register_user function with a callback to handle the response
+                database.register_user(email, password, username, (err) => {
+                if (err) {
+                    // Return an error message indicating the error that occurred
+                    res.json({ success: false, message: err.message });
+                } else {
+                    // Return a success message if the insert was successful
+                    res.json({ success: true, message: 'User added!' });
+                }
+          });
+        }
+      });
+
     return router;
 
 }
