@@ -47,6 +47,13 @@ var app = angular.module('appRoutes',['ngRoute'])
         authenticated: true
     })
 
+    // .when('/summary',{
+    //     templateUrl: 'app/views/pages/summary.html',
+    //     controller: 'summaryCtrl',
+    //     controllerAs: 'summary',
+    //     authenticated: true
+    // })
+
     .otherwise({redirectTo: '/'});
 
     $locationProvider.html5Mode({
