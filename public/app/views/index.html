@@ -14,6 +14,7 @@
 	<script src="/app/controllers/taskDisplay.js"></script>
 	<script src="/app/controllers/taskEditController.js"></script>
 	<script src="/app/controllers/userCtrl.js"></script>
+	<script src="/app/controllers/mainCtrl.js"></script>
 	<!--Angular Config/Routes-->
 	<script src="app/app.js"></script>
 	<script src="app/routes.js"></script>
@@ -21,10 +22,11 @@
 	<script src="app/services/taskServices.js"></script>
 	<script src="app/services/dataServices.js"></script>
 	<script src="app/services/userServices.js"></script>
-	<body ng-app="plannerApp">
+	<script src="app/services/authServices.js"></script>
+	<body ng-app="plannerApp" ng-controller = "mainCtrl as main" ng-show="main.loadme" ng-cloak>
 	<base href = "/">
-</head>
-<nav class="navbar navbar-expand-sm   navbar-light bg-light">
+	</head>
+	<nav class="navbar navbar-expand-sm   navbar-light bg-light">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
@@ -35,10 +37,10 @@
 		  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 		</li>
 		<li class="nav-item">
-		  <a class="nav-link" href="/task_manager">Task Manager</a>
+		  <a class="nav-link" ng-show="main.isLoggedIn" href="/task_manager">Task Manager</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="/create_task">Create Task</a>
+			<a class="nav-link" ng-show="main.isLoggedIn" href="/create_task">Create Task</a>
 		  </li>
 	  <!--<li class="nav-item">
 		<a class="nav-link" href="/calender">Calender</a>
@@ -48,12 +50,13 @@
 	  </li>-->
 	   <li class="nav-item dropdown dmenu">
 		<a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-		  Account
+		  Account {{main.username}}
 		</a>
 		<div class="dropdown-menu sm-menu">
-		  <a class="dropdown-item" href="/register">Register</a>
-		  <!-- <a class="dropdown-item" href="#">Link 2</a>
-		  <a class="dropdown-item" href="#">Link 3</a>
+			<a class="dropdown-item" ng-show="!main.isLoggedIn" href="/register">Register a new user</a>
+			<a class="dropdown-item" ng-show="!main.isLoggedIn" href="/login">Login</a>
+			<a class="dropdown-item" ng-show="main.isLoggedIn" href="#" ng-click="main.logout()">Logout</a>
+		  <!-- <a class="dropdown-item" href="#">Link 3</a>
 		  <a class="dropdown-item" href="#">Link 4</a>
 		  <a class="dropdown-item" href="#">Link 5</a>
 		  <a class="dropdown-item" href="#">Link 6</a> -->

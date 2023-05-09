@@ -1,0 +1,25 @@
+<div class = "page-header">User Login</div>
+
+<form ng-submit="main.doLogin(loginData);">
+    <label>Username: </label>
+    <input class="form-control" type="text" name="username" placeholder="Please enter your username" ng-model="main.loginData.username">
+    <br>
+    <label>Password: </label>
+    <input class="form-control" type="password" name="password" placeholder="Please enter your password" ng-model="main.loginData.password">
+    <br>
+    <button class="btn btn-primary" type="submit">Login</button>
+    
+
+</form>
+
+<div class="row show-hide-message" ng-show="main.successMsg">
+    <div class="alert alert-success">{{main.successMsg}}</div>
+    
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="main.errorMsg">
+    <div class="alert alert-danger">{{main.errorMsg}}</div>
+    
+</div>
