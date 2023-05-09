@@ -53,6 +53,12 @@ module.exports = function(router){
         }
     });
 
+    //COMPLETE TASK
+    router.post(`/complete_task`, function(req,res){
+        let task_id = req.body.task_id;
+        database.completeTask(task_id);
+    });
+
     //USER REGISTERATION ROUT
 
     router.post(`/users`, function(req, res) {

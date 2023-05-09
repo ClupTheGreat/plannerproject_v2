@@ -22,7 +22,7 @@ function create_task(task_name, task_description, task_end_time, username){
 };
 
 function all_task_details(username, callback){
-    queryAll = `SELECT * FROM task_detail WHERE username = ?;`;
+    queryAll = `SELECT * FROM task_detail WHERE username = ? ORDER BY task_id DESC;`;
     db.all(queryAll, [username], (err, rows) => {
         if (err) return console.log(err);
         callback(rows);
@@ -91,9 +91,18 @@ function findUserComparePassword(username, password, callback) {
   });
 }
 
+function completeTask(task_id) {
+  db.run('UPDATE task_detail SET task_status = 1 WHERE task_id = ?', task_id, function(err) {
+    if (err) {
+      console.log(err.message);
+    } else {
+    }
+  });
+}
 
 
 
-module.exports = {create_task, all_task_details, delete_task, edit_task, register_user, findUserComparePassword};
+
+module.exports = {create_task, all_task_details, delete_task, edit_task, register_user, findUserComparePassword, completeTask};
 
 //module.exports = {create_topic, create_task_and_insert_task_detail, run_query, get_task_details, select_task, edit_task, delete_task, change_status, delete_topic};
