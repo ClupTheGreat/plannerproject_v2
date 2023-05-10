@@ -1,6 +1,6 @@
 angular.module('taskDisplayControllers', ['dataServices'])
 
-.controller('taskDisplayCtrl', function($scope, $http, $interval, DataService) {
+.controller('taskDisplayCtrl', function($scope, $http, $interval, DataService, $timeout) {
   //audio files
   var audio = new Audio('/assets/audio/alert.mp3');
   var audio_complete = new Audio('/assets/audio/alert_complete.mp3');
@@ -16,6 +16,7 @@ angular.module('taskDisplayControllers', ['dataServices'])
 
   $scope.$on('$viewContentLoaded', function() {
     $scope.loadData();
+    $scope.loadSubTask();
     $interval($scope.calculateTimeRemaining, 1000); // update the timer every second
   });
 
@@ -47,15 +48,15 @@ angular.module('taskDisplayControllers', ['dataServices'])
         var seconds = Math.floor((diff % (1000 * 60)) / 1000);
         task.time_remaining = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
 
-        if (!task.playedAudio.hour && hours == 1) {
+        if (!task.playedAudio.hour && hours == 1 && minutes == 0 && seconds == 0) {
           audio.play();
           task.playedAudio.hour = true;
         } 
-        if (!task.playedAudio.minute30 && minutes == 30) {
+        if (!task.playedAudio.minute30 && minutes == 30 && seconds == 0) {
           audio.play();
           task.playedAudio.minute30 = true;
         } 
-        if (!task.playedAudio.minute10 && minutes == 10) {
+        if (!task.playedAudio.minute10 && minutes == 10 && seconds == 0) {
           audio.play();
           task.playedAudio.minute10 = true;
         } 
@@ -81,5 +82,30 @@ angular.module('taskDisplayControllers', ['dataServices'])
       $scope.loadData();
     }
   };
+
+  $scope.createSubTask = function(task_id, subtaskDescription){
+    if (subtaskDescription == "" || subtaskDescription == null) {
+      console.log("No data provided");
+      loadSubTask();
+    } else {
+      $http.post('/api/create_sub_task',{task_id : task_id, subtaskDescription : subtaskDescription});
+    }
+    $scope.loadSubTask();
+    
+  }
+
+  $scope.loadSubTask = function(){
+    $http.post('/api/load_sub_tasks').then(function(response){
+      $scope.subData = response.data;
+      console.log($scope.subData);
+    })
+  }
+
+  $scope.deleteSubTask = function(subtask_id){
+    $http.post('/api/delete_sub_task',{subtask_id : subtask_id});
+      $scope.loadSubTask();
+    
+  }
+
 });
 

@@ -23,6 +23,7 @@
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "sqlite3": "^5.1.6"
   }
 }

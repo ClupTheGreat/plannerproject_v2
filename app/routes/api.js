@@ -10,7 +10,6 @@ module.exports = function(router){
         let task_name = req.body.task_name;
         let task_description = req.body.task_description;
         let task_end_time = req.body.task_end_time;
-        console.log(dbusname);
         
         //Checking if valid data is entered
         if (task_name == null || task_description == null || task_end_time == null || task_name == '' || task_description == '' || task_end_time == ''){
@@ -121,6 +120,25 @@ module.exports = function(router){
     router.post('/me',function(req,res){
         res.send(req.decoded);
         dbusname = req.decoded.username;
+    });
+
+    router.post('/create_sub_task', function(req,res){
+        let task_id = req.body.task_id;
+        let subtask_description = req.body.subtaskDescription;
+        database.create_sub_task(task_id, subtask_description);
+    });
+
+    router.post('/load_sub_tasks', function(req,res){
+        let subData;
+        database.subtask_details(function(rows){
+            subData = rows;
+            res.json(subData);
+        });
+    });
+
+    router.post('/delete_sub_task', function(req,res){
+        let subtask_id = req.body.subtask_id;
+        database.delete_sub_task(subtask_id);
     });
 
 

@@ -8,9 +8,11 @@ const db = new sqlite.Database('./database/store.db',sqlite.OPEN_READWRITE, (err
 // Creates all tables
 sql_task_detail = 'CREATE TABLE IF NOT EXISTS task_detail (task_id INTEGER PRIMARY KEY AUTOINCREMENT, task_name TEXT, task_description TEXT, task_end_time DATETIME, task_status INTEGER DEFAULT 0, username TEXT NOT NULL, FOREIGN KEY (username) REFERENCES user(username));'
 sql_user = 'CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE, password TEXT, username TEXT UNIQUE);'
-
-db.run(sql_task_detail);
+sql_sub_task = 'CREATE TABLE IF NOT EXISTS subtask ( subtask_id INTEGER PRIMARY KEY AUTOINCREMENT, subtask_description TEXT, task_id INTEGER, FOREIGN KEY (task_id) REFERENCES task_detail(task_id));';
 db.run(sql_user);
+db.run(sql_task_detail);
+db.run(sql_sub_task);
+
 
 // db.run(sqltask);
 
@@ -100,9 +102,41 @@ function completeTask(task_id) {
   });
 }
 
+function create_sub_task(task_id, subtask_description){
+  db.run('INSERT INTO subtask (subtask_description, task_id) VALUES ( ?, ?)',subtask_description, task_id, function(err){
+    if (err){
+      console.log(err.message);
+    }
+  });
+
+}
+
+function subtask_details(callback){
+  const dbs = new sqlite.Database('./database/store.db',sqlite.OPEN_READWRITE, (err) => {
+    if (err) return console.error(err);
+  });
+  let all_sub_task = `SELECT * FROM subtask;`;
+  dbs.all(all_sub_task, (err, rows) => {
+      if (err) return console.log(err);
+      callback(rows);
+  });
+  dbs.close();
+}
+
+function delete_sub_task(subtask_id){
+  const dbw = new sqlite.Database('./database/store.db',sqlite.OPEN_READWRITE, (err) => {
+    if (err) return console.error(err);
+  });
+  queryDeleteSubtask = 'DELETE FROM subtask WHERE subtask_id == ?;'
+  dbw.run(queryDeleteSubtask,[subtask_id], (err)=>{
+    if (err) return console.log(err);
+});
+  dbw.close();
+}
 
 
 
-module.exports = {create_task, all_task_details, delete_task, edit_task, register_user, findUserComparePassword, completeTask};
+
+module.exports = {create_task, all_task_details, delete_task, edit_task, register_user, findUserComparePassword, completeTask, create_sub_task, subtask_details, delete_sub_task};
 
 //module.exports = {create_topic, create_task_and_insert_task_detail, run_query, get_task_details, select_task, edit_task, delete_task, change_status, delete_topic};
