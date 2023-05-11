@@ -15,6 +15,7 @@
 	<script src="/app/controllers/taskEditController.js"></script>
 	<script src="/app/controllers/userCtrl.js"></script>
 	<script src="/app/controllers/mainCtrl.js"></script>
+	<!-- <script src="/app/controllers/exportCtrl.js"></script> -->
 	<!-- <script src="/app/controllers/summaryCtrl.js"></script> -->
 	<!--Angular Config/Routes-->
 	<script src="app/app.js"></script>
@@ -58,6 +59,7 @@
 		<div class="dropdown-menu sm-menu">
 			<a class="dropdown-item" ng-show="!main.isLoggedIn" href="/register">Register a new user</a>
 			<a class="dropdown-item" ng-show="!main.isLoggedIn" href="/login">Login</a>
+			<!-- <a class="dropdown-item" ng-show="main.isLoggedIn" href="/export">Export Tasks</a> -->
 			<a class="dropdown-item" ng-show="main.isLoggedIn" href="#" ng-click="main.logout()">Logout</a>
 		  <!-- <a class="dropdown-item" href="#">Link 3</a>
 		  <a class="dropdown-item" href="#">Link 4</a>

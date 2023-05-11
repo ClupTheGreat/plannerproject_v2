@@ -77,9 +77,16 @@ angular.module('taskDisplayControllers', ['dataServices'])
         $scope.loadData();
     }
 
-    $scope.completeTask = function(task_id){
-      $http.post('/api/complete_task',{task_id : task_id});
-      $scope.loadData();
+    $scope.completeTask = function(task_id, task_status){
+      if (task_status == 0 ){
+        $http.post('/api/complete_task',{task_id : task_id, task_status : 1 });
+        audio_complete.play();
+        $scope.loadData();
+      } else {
+        $http.post('/api/complete_task',{task_id : task_id, task_status : 0 });
+        $scope.loadData();
+      }
+      
     }
   };
 
