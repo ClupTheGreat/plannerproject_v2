@@ -216,5 +216,3 @@ function delete_sub_task(subtask_id) {
 }
 
 module.exports = {create_task, all_task_details, delete_task, edit_task, register_user, findUserComparePassword, completeTask, create_sub_task, subtask_details, delete_sub_task};
-
-//module.exports = {create_topic, create_task_and_insert_task_detail, run_query, get_task_details, select_task, edit_task, delete_task, change_status, delete_topic};

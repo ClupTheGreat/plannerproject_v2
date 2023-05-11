@@ -141,44 +141,7 @@ module.exports = function(router){
         let subtask_id = req.body.subtask_id;
         database.delete_sub_task(subtask_id);
     });
-
-    router.post('/export_data',function(req,res){
-        const fs = require('fs');
-        const xml2js = require('xml2js');
-        const opn = require('opn');
-        let dataExp;
-
-        database.all_task_details(dbusname, function(rows) {
-            data = rows;
-            dataExp = data;
-          });
-
-        // Sample data to be exported as XML
-        
-
-        // Create a new XML builder instance
-        const builder = new xml2js.Builder();
-
-        // Convert the data to XML
-        const xml = builder.buildObject(dataExp);
-
-        // Write the XML to a file
-        const filename = 'users.xml';
-        fs.writeFile(filename, xml, (err) => {
-            if (err) {
-                console.error(err);
-                return;
-        }
-
-        console.log(`XML data written to ${filename}`);
-
-        // Open the file explorer window to show the saved XML file
-        opn(filename);
-        });
-
-        });
-
-
+    
     return router;
 
 }

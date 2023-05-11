@@ -52,15 +52,15 @@ angular.module('taskDisplayControllers', ['dataServices'])
           audio.play();
           task.playedAudio.hour = true;
         } 
-        if (!task.playedAudio.minute30 && minutes == 30 && seconds == 0) {
+        if (!task.playedAudio.minute30 && hours == 0  && minutes == 30 && seconds == 0) {
           audio.play();
           task.playedAudio.minute30 = true;
         } 
-        if (!task.playedAudio.minute10 && minutes == 10 && seconds == 0) {
+        if (!task.playedAudio.minute10 && hours == 0 && minutes == 10 && seconds == 0) {
           audio.play();
           task.playedAudio.minute10 = true;
         } 
-        if (!task.playedAudio.second1 && minutes == 0 && seconds == 1) {
+        if (!task.playedAudio.second1 && hours == 0 && minutes == 0 && seconds == 1) {
           audio_complete.play();
           task.playedAudio.second1 = true;
         }
