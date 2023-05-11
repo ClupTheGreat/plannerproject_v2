@@ -1,16 +1,21 @@
 <div class = "page-header">User Registeration</div>
 
-<form ng-submit="register.regUser(regData);">
-    <label>Email: </label>
-    <input class="form-control" type="email" name="email" placeholder="Please enter your email" ng-model="register.regData.email">
-    <br>
-    <label>Username: </label>
-    <input class="form-control" type="text" name="username" placeholder="Please enter your username" ng-model="register.regData.username">
-    <br>
-    <label>Password: </label>
-    <input class="form-control" type="password" name="password" placeholder="Please enter your password" ng-model="register.regData.password">
-    <br>
+<form name="regForm" ng-submit="register.regUser(regData);">
+    <div class="field">
+        <input class="input" type="email" name="email" placeholder=" " ng-model="register.regData.email">
+        <label class="label">Email</label>
+    </div>
+    <div class="field">
+    <input class="input" type="text" name="username" placeholder=" " ng-model="register.regData.username">
+    <label class="label">Username</label>
+    </div>
+    <div class="field" ng-class="{}">
+    <input class="input" type="password" name="password" placeholder=" " ng-model="register.regData.password">
+    <label class="label">Password</label>
+    </div>
+    <div>
     <button class="btn btn-primary" type="submit">Register</button>
+    </div>
     
 
 </form>

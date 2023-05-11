@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan Pro</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/all.css">
+	<link rel="stylesheet" href="assets/css/card.css">
 	<!--Angular files-->
 	<script src="/assets/js/angular.js"></script>
 	<script src="/assets/js/angular-route.js"></script>
@@ -26,71 +30,54 @@
 	<script src="app/services/userServices.js"></script>
 	<script src="app/services/authServices.js"></script>
 	<!-- Bootstrapsrc -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.6/ui-bootstrap.min.js"></script>
 	<body ng-app="plannerApp" ng-controller = "mainCtrl as main" ng-show="main.loadme" ng-cloak>
 	<base href = "/">
 	</head>
-	<nav class="navbar navbar-expand-sm   navbar-light bg-light">
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-	  <span class="navbar-toggler-icon"></span>
-	</button>
-
-	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-	  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-		<li class="nav-item">
-		  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-		  <a class="nav-link" ng-show="main.isLoggedIn" href="/task_manager">Task Manager</a>
-		</li>
-		<li class="nav-item">
-			<!-- <a class="nav-link" ng-show="main.isLoggedIn" href="/summary">Summary</a> -->
-		  </li>
-	  <!--<li class="nav-item">
-		<a class="nav-link" href="/calender">Calender</a>
-	  </li>
-	  <li class="nav-item">
-		<a class="nav-link" href="#">Call</a>
-	  </li>-->
-	   <li class="nav-item dropdown dmenu">
-		<a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-		  Account {{main.username}}
-		</a>
-		<div class="dropdown-menu sm-menu">
-			<a class="dropdown-item" ng-show="!main.isLoggedIn" href="/register">Register a new user</a>
-			<a class="dropdown-item" ng-show="!main.isLoggedIn" href="/login">Login</a>
-			<!-- <a class="dropdown-item" ng-show="main.isLoggedIn" href="/export">Export Tasks</a> -->
-			<a class="dropdown-item" ng-show="main.isLoggedIn" href="#" ng-click="main.logout()">Logout</a>
-		  <!-- <a class="dropdown-item" href="#">Link 3</a>
-		  <a class="dropdown-item" href="#">Link 4</a>
-		  <a class="dropdown-item" href="#">Link 5</a>
-		  <a class="dropdown-item" href="#">Link 6</a> -->
-		</div>
-	  </li>
-	  </ul>
-	  <!-- <div class="social-part">
-		<i class="fa fa-facebook" aria-hidden="true"></i>
-		<i class="fa fa-twitter" aria-hidden="true"></i>
-		<i class="fa fa-instagram" aria-hidden="true"></i>
-	  </div> -->
-	</div>
-  </nav>
-  <!---
+	<nav class="navbar">
+		<ul class="navbar-nav">
+			<li class="logo">
+				<a href="#" class="nav-link">
+					<span class="link-text">Daily Task Manager</span>
+					<i class="fa-solid fa-angles-right fa-2xl"></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="/" class="nav-link">
+					<i class="fa-solid fa-house fa-2xl" style="color: #c0c0c0;"></i>
+					<span class="link-text">Home</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="/task_manager" class="nav-link">
+					<i class="fa-regular fa-newspaper fa-2xl"></i>
+					<span class="link-text">Task Manager</span>
+				</a>
+			</li>
+			<li class="nav-item" ng-show="!main.isLoggedIn">
+				<a href="/register" class="nav-link">
+					<i class="fa-regular fa-envelope fa-2xl"></i>
+					<span class="link-text">Register</span>
+				</a>
+			</li>
+			<li class="nav-item" ng-show="!main.isLoggedIn">
+				<a href="/login" class="nav-link">
+					<i class="fa-solid fa-arrow-right-to-bracket fa-2xl"></i>
+					<span class="link-text">Login</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a ng-show="main.isLoggedIn" href="#" ng-click="main.logout()" class="nav-link">
+					<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>
+					<span class="link-text">Logout</span>
+					</a>
+			</li>
+	  
+		</ul>	  
+  	</nav>
 	<main>
-		<p>Welcome to the Planner Project!</p>
-		<p>Click the button to load some data from the server:</p>
-		<button ng-click="loadData()">Load Data</button>
-		<div ng-show="loading">
-			<p>Loading data...</p>
-		</div>
-		<div ng-show="!loading">
-			<p ng-repeat="item in items">Item ID: {{ item.id }}, Item Name: {{ item.name }}</p>
-		</div>
-	</main> -->
-
 	<div ng-view class="ngview-container">
-
 	</div>
+	</main>
 
 <!--
 <footer>
@@ -99,13 +86,10 @@
 
 </body>
 <!--jquery and bootstrap/css-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
 	
 	
 </html>

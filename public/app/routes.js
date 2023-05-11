@@ -47,6 +47,10 @@ var app = angular.module('appRoutes',['ngRoute'])
         authenticated: true
     })
 
+    .when('/kanban',{
+        templateUrl: 'app/views/pages/kanban.html'
+    })
+
     // .when('/summary',{
     //     templateUrl: 'app/views/pages/summary.html',
     //     controller: 'summaryCtrl',

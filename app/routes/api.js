@@ -67,20 +67,29 @@ module.exports = function(router){
         let password = req.body.password;
       
         if (email == null || email == '' || username == '' || username == null || password == '' || password == null) {
-            // Return an error message indicating that email, username, and password are required
             res.json({ success: false, message: 'Ensure email, username, and password are provided' });
+        } else if (username.length < 4 || username.length > 20) {
+            res.json({ success: false, message: 'Username must be between 4 and 20 characters' });
+        } else if (password.length < 4 || password.length > 30) {
+            res.json({ success: false, message: 'Password must be between 4 and 30 characters' });
+        } else if (!isValidEmail(email)) {
+            res.json({ success: false, message: 'Invalid email address' });
         } else {
-                // Call the register_user function with a callback to handle the response
-                database.register_user(email, password, username, (err) => {
+            database.register_user(email, password, username, (err) => {
                 if (err) {
-                    // Return an error message indicating the error that occurred
                     res.json({ success: false, message: err.message });
                 } else {
-                    // Return a success message if the insert was successful
                     res.json({ success: true, message: 'User added!' });
                 }
-          });
+                });
+            }
+
+        function isValidEmail(email) {
+        // Regular expression to validate email addresses
+        var emailPattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailPattern.test(email);
         }
+
       });
 
     
