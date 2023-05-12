@@ -150,6 +150,24 @@ module.exports = function(router){
         let subtask_id = req.body.subtask_id;
         database.delete_sub_task(subtask_id);
     });
+
+    router.post('/kanban_request', function(req,res){
+        let data;
+        database.kanban_all(dbusname, function(rows) {
+            data = rows;
+            res.json(data);
+          });
+    })
+
+    router.post('/kanban_movr', function(req,res){
+        let task_id = req.body.task_id;
+        database.kanban_movr(task_id);
+    })
+
+    router.post('/kanban_movl', function(req,res){
+        let task_id = req.body.task_id;
+        database.kanban_movl(task_id);
+    })
     
     return router;
 

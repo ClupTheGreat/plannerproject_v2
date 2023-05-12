@@ -1,0 +1,35 @@
+<div class="board">
+    <div class="lanes">
+        <div class="swim-lane" id="todo-lane">
+            <h1>TODO</h1>
+            <div class="kanban-task-container" ng-repeat="task in kanbanData" ng-if="task.task_status === 0">
+                <div class="kanban-task-name">{{ task.task_name }}</div>
+                <div class="kanban-button-container">
+                    <button class="kanban-button" ng-click="movl(task.task_id)"><i class="fa-solid fa-arrow-left fa-xs"></i></button>
+                    <button class="kanban-button" ng-click="movr(task.task_id)"><i class="fa-solid fa-arrow-right fa-xs"></i></button>
+                </div>
+              </div>
+            
+        </div>
+        <div class="swim-lane" id="todo-lane">
+            <h1>DOING</h1>
+            <div ng-repeat="task in kanbanData" ng-if="task.task_status === 1">
+                <div class="kanban-task-name">{{ task.task_name }}</div>
+                <div class="kanban-button-container">
+                    <button class="kanban-button" ng-click="movl(task.task_id)"><i class="fa-solid fa-arrow-left fa-xs"></i></button>
+                    <button class="kanban-button" ng-click="movr(task.task_id)"><i class="fa-solid fa-arrow-right fa-xs"></i></button>
+                    </div>
+              </div>
+        </div>
+        <div class="swim-lane" id="todo-lane">
+            <h1>DONE</h1>
+            <div ng-repeat="task in kanbanData" ng-if="task.task_status === 2">
+                <div class="kanban-task-name">{{ task.task_name }}</div>
+                <div class="kanban-button-container">
+                    <button class="kanban-button" ng-click="movl(task.task_id)"><i class="fa-solid fa-arrow-left fa-xs"></i></button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>  

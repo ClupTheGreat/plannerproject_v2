@@ -230,7 +230,64 @@ form {
         transform: scale(0.8) translateY(-3rem);
     }
 
+.home {
+    text-align: center;
+}
 
+.registerPage {
+    text-align: center;
+}
+
+.loginPage {
+    text-align: center;
+}
+
+button {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    color: var(--text-primary);
+    border: none;
+    box-shadow: 0px 5px 15px #000;
+    padding: 5px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    filter: grayscale(100%) opacity(0.7);
+    transition: 300ms;
+    width: 40%;
+    margin: 5px;
+}
+
+button:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+}
+
+.button-link {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    color: var(--text-primary);
+    border: none;
+    box-shadow: 0px 5px 15px #000;
+    padding: 5px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    filter: grayscale(100%) opacity(0.7);
+    transition: 300ms;
+    width: 40%;
+    margin: 5px;
+}
+
+.button-link:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
+}
 
 
 /* main{

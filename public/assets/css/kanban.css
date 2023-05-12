@@ -1,0 +1,136 @@
+:root {
+    font-size: 16px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
+.board {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.kanban-input{
+    display: flex;
+    flex-direction: row;
+
+}
+
+#kanban-add-form {
+    padding: 32px 32px 0;
+}
+
+#kanban-add-form input{
+    padding: 12px;
+    margin-right: 12px;
+    width: 225px;
+
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0px 5px 15px #000;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+#kanban-add-form button {
+    padding: 12px;
+    margin-right: 12px;
+    width: 100px;
+
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0px 5px 15px #000;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    filter: grayscale(100%) opacity(0.7);
+    transition: 300ms;
+}
+
+#kanban-add-form button:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+}
+
+.lanes {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 1rem;
+
+    padding: 1.5rem 32px;
+
+    overflow: scroll;
+    height: 100%;
+}
+
+.swim-lane {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 85vh;
+    width: 400px;
+    min-width: 250px;
+    padding: 1.5rem;
+    overflow: auto;
+    margin-right: 20px;
+
+    border-radius: 16px;
+    background-color: #17141d;
+    box-shadow: -1rem 0 3rem #000;
+
+    transition: .2s;
+}
+
+.kanban-task-name{
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    color: var(--text-primary);
+    border: none;
+    box-shadow: 0px 5px 15px #000;
+    padding: 5px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    filter: grayscale(100%) opacity(0.7);
+    transition: 300ms;
+}
+
+.kanban-task-name:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+}
+
+.kanban-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.kanban-button {
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    color: var(--text-primary);
+    border: none;
+    box-shadow: 0px 5px 15px #000;
+    padding: 5px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    filter: grayscale(100%) opacity(0.7);
+    transition: 300ms;
+    width: 40%;
+    margin: 5px;
+}
+
+.kanban-button:hover {
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+}
+
+.kanban-task-container {
+    margin-bottom: 2px;
+}
+
+

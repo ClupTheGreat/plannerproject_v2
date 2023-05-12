@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/all.css">
 	<link rel="stylesheet" href="assets/css/card.css">
+	<link rel="stylesheet" href="assets/css/kanban.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 	<!--Angular files-->
 	<script src="/assets/js/angular.js"></script>
 	<script src="/assets/js/angular-route.js"></script>
@@ -19,6 +21,7 @@
 	<script src="/app/controllers/taskEditController.js"></script>
 	<script src="/app/controllers/userCtrl.js"></script>
 	<script src="/app/controllers/mainCtrl.js"></script>
+	<script src="/app/controllers/kanbanCtrl.js"></script>
 	<!-- <script src="/app/controllers/exportCtrl.js"></script> -->
 	<!-- <script src="/app/controllers/summaryCtrl.js"></script> -->
 	<!--Angular Config/Routes-->
@@ -29,7 +32,7 @@
 	<script src="app/services/dataServices.js"></script>
 	<script src="app/services/userServices.js"></script>
 	<script src="app/services/authServices.js"></script>
-	<!-- Bootstrapsrc -->
+	<!-- Angular Module -->
 	<body ng-app="plannerApp" ng-controller = "mainCtrl as main" ng-show="main.loadme" ng-cloak>
 	<base href = "/">
 	</head>
@@ -65,13 +68,18 @@
 					<span class="link-text">Login</span>
 				</a>
 			</li>
-			<li class="nav-item">
-				<a ng-show="main.isLoggedIn" href="#" ng-click="main.logout()" class="nav-link">
+			<li class="nav-item" ng-show="main.isLoggedIn">
+				<a href="/kanban" class="nav-link">
+					<i class="fa-solid fa-clipboard-list fa-2xl"></i>
+					<span class="link-text">Kanban Board</span>
+					</a>
+			</li>
+			<li class="nav-item" ng-show="main.isLoggedIn">
+				<a href="#" ng-click="main.logout()" class="nav-link">
 					<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>
 					<span class="link-text">Logout</span>
 					</a>
 			</li>
-	  
 		</ul>	  
   	</nav>
 	<main>
@@ -86,9 +94,8 @@
 
 </body>
 <!--jquery and bootstrap/css-->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 	
 	
 	

@@ -215,4 +215,31 @@ function delete_sub_task(subtask_id) {
   });
 }
 
-module.exports = {create_task, all_task_details, delete_task, edit_task, register_user, findUserComparePassword, completeTask, create_sub_task, subtask_details, delete_sub_task};
+function kanban_all(username, callback) {
+  const querykanbanAll = 'SELECT task_name, task_status, task_id FROM task_detail WHERE username = ?';
+  connection.query(querykanbanAll, [username], (err, rows) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    callback(rows);
+  });
+}
+
+function kanban_movr(task_id){
+  connection.query('UPDATE task_detail SET task_status = task_status + 1 WHERE task_id = ?;', [task_id], (err) => {
+    if (err) return console.log(err);
+  });
+}
+
+function kanban_movl(task_id){
+  connection.query('UPDATE task_detail SET task_status = task_status - 1 WHERE task_id = ?;', [task_id], (err) => {
+    if (err) return console.log(err);
+  });
+}
+
+
+
+
+
+module.exports = {create_task, all_task_details, delete_task, edit_task, register_user, findUserComparePassword, completeTask, create_sub_task, subtask_details, delete_sub_task, kanban_all, kanban_movr, kanban_movl};

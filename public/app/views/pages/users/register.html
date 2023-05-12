@@ -1,5 +1,4 @@
-<div class = "page-header">User Registeration</div>
-
+<div class = "registerPage"><div>USER REGISTERATION</div>
 <form name="regForm" ng-submit="register.regUser(regData);">
     <div class="field">
         <input class="input" type="email" name="email" placeholder=" " ng-model="register.regData.email">
@@ -30,4 +29,5 @@
 <div class="row show-hide-message" ng-show="register.errorMsg">
     <div class="alert alert-danger">{{register.errorMsg}}</div>
     
+</div>
 </div>

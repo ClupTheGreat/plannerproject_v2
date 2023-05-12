@@ -1,4 +1,4 @@
-<a class="btn btn-primary" ng-show="main.isLoggedIn" href="/create_task">Create Task</a></b></h1>
+<a class="button-link"  ng-show="main.isLoggedIn" href="/create_task">Create Task</a></b></h1>
 
 <section class="card-list">
   <article class="card" ng-repeat="task in data">
@@ -24,10 +24,10 @@
             </form>
           </div>
           <div class="button-container">
-            <a ng-href="/edit_task" ng-click="sendData(task.task_id)" class="btn btn-primary">Edit Task</a>
+            <a ng-href="/edit_task" ng-click="sendData(task.task_id)" class="button-link" >Edit Task</a>
             
             <button class="btn btn-danger" ng-click="deleteTask(task.task_id)">Delete Task</button>
-              <a ng-click="completeTask(task.task_id, task.task_status)" class="btn btn-primary">
+              <a ng-click="completeTask(task.task_id, task.task_status)" class="button-link">
               Complete Task</a>
         </div>
     </div>
